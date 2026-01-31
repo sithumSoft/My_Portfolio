@@ -656,17 +656,17 @@
                         </div>
                     </div>
                     
-                    <form class="space-y-4" onsubmit="event.preventDefault(); alert('Message sent!');">
+                    <form id="contact-form" class="space-y-4">
                         <div>
-                            <input type="text" placeholder="Your Name" class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-primary focus:outline-none transition text-white placeholder-gray-500">
+                            <input type="text" name="from_name" placeholder="Your Name" required class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-primary focus:outline-none transition text-white placeholder-gray-500">
                         </div>
                         <div>
-                            <input type="email" placeholder="Your Email" class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-primary focus:outline-none transition text-white placeholder-gray-500">
+                            <input type="email" name="from_email" placeholder="Your Email" required class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-primary focus:outline-none transition text-white placeholder-gray-500">
                         </div>
                         <div>
-                            <textarea rows="4" placeholder="Your Message" class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-primary focus:outline-none transition text-white placeholder-gray-500 resize-none"></textarea>
+                            <textarea rows="4" name="message" placeholder="Your Message" required class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-primary focus:outline-none transition text-white placeholder-gray-500 resize-none"></textarea>
                         </div>
-                        <button type="submit" class="w-full py-4 rounded-lg bg-gradient-to-r from-primary to-secondary text-dark font-bold hover:shadow-lg hover:shadow-primary/50 transition transform hover:scale-[1.02]">
+                        <button type="submit" id="submit-btn" class="w-full py-4 rounded-lg bg-gradient-to-r from-primary to-secondary text-dark font-bold hover:shadow-lg hover:shadow-primary/50 transition transform hover:scale-[1.02]">
                             Send Message
                         </button>
                     </form>
