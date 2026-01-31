@@ -146,6 +146,14 @@
         }
     </style>
 <base target="_blank">
+    
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("kfGLsG1bfjLSaGk9h"); // Replace with your EmailJS public key from https://dashboard.emailjs.com/admin/account
+        })();
+    </script>
 </head>
 <body class="antialiased selection:bg-primary selection:text-dark">
 
@@ -763,6 +771,30 @@
                 const yOffset = (0.5 - y) * speed;
                 orb.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
             });
+        });
+        
+        // EmailJS Form Submission
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const btn = document.getElementById('submit-btn');
+            const originalText = btn.textContent;
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+            
+            // Replace YOUR_SERVICE_ID and YOUR_TEMPLATE_ID with your EmailJS credentials
+            emailjs.sendForm('service_ldhppkk', 'template_fmi1s3y', this)
+                .then(function() {
+                    alert('✅ Message sent successfully! I\'ll get back to you soon.');
+                    btn.textContent = originalText;
+                    btn.disabled = false;
+                    document.getElementById('contact-form').reset();
+                }, function(error) {
+                    alert('❌ Failed to send message. Please try again or email me directly at sithumrishikacom@gmail.com');
+                    btn.textContent = originalText;
+                    btn.disabled = false;
+                    console.log('EmailJS Error:', error);
+                });
         });
     </script>
 </body>
